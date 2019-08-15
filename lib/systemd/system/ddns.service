@@ -1,0 +1,15 @@
+[Unit]
+Description=DDNS
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /usr/bin/ddns.sh
+Restart=always
+RestartSec=30s
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

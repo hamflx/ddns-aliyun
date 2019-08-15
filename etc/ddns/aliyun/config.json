@@ -1,0 +1,26 @@
+{
+    "current": "akProfile",
+    "profiles": [
+        {
+            "name": "akProfile",
+            "mode": "AK",
+            "access_key_id": "<AccessKey ID>",
+            "access_key_secret": "<Access Key Secret>",
+            "sts_token": "",
+            "ram_role_name": "",
+            "ram_role_arn": "",
+            "ram_session_name": "",
+            "private_key": "",
+            "key_pair_name": "",
+            "expired_seconds": 0,
+            "verified": "",
+            "region_id": "cn-hangzhou",
+            "output_format": "json",
+            "language": "en",
+            "site": "china",
+            "retry_timeout": 0,
+            "retry_count": 0
+        }
+    ],
+    "meta_path": ""
+}
