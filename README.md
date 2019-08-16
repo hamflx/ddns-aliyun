@@ -63,6 +63,7 @@
 
     启动 ddns-aliyun 进行测试，若提示 `Updated successfully` 或 `Already latest` 则表示运行成功：
 
+        # 测试成功后，按 ^C 终止
         ddns.sh
 
     启动 ddns-aliyun 并将其设置为随系统引导一起启动：
