@@ -4,8 +4,8 @@
         {
             "name": "akProfile",
             "mode": "AK",
-            "access_key_id": "<AccessKey ID>",
-            "access_key_secret": "<Access Key Secret>",
+            "access_key_id": "<ACCESS_KEY_ID>",
+            "access_key_secret": "<ACCESS_KEY_SECRET>",
             "sts_token": "",
             "ram_role_name": "",
             "ram_role_arn": "",

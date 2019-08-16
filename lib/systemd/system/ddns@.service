@@ -8,8 +8,7 @@ Type=simple
 ExecStart=/bin/bash /usr/bin/ddns.sh
 Restart=always
 RestartSec=30s
-User=root
-Group=root
+User=%i
 
 [Install]
 WantedBy=multi-user.target

@@ -8,8 +8,23 @@ function log () {
     fi
 }
 
-. /etc/ddns/ddns.conf
+CONFIGURATION_DIR="$HOME/.ddns"
+CONFIGURATION_FILE="$HOME/.ddns/ddns.conf"
+ALIYUN_CONFIG_FILE="$HOME/.ddns/aliyun.json"
 
+if [[ ! -f "$CONFIGURATION_FILE" ]]; then
+    echo "Configuration file $CONFIGURATION_FILE not found."
+    exit 1
+fi
+
+. "$CONFIGURATION_FILE"
+
+# 将配置文件中的 AccessKey 写入到阿里云的配置文件
+sed -i -e "s/\"access_key_id\": \"[^\"]*\"/\"access_key_id\": \"$ACCESS_KEY_ID\"/g" \
+    -e "s/\"access_key_secret\": \"[^\"]*\"/\"access_key_secret\": \"$ACCESS_KEY_SECRET\"/g" "$ALIYUN_CONFIG_FILE"
+
+# 将配置文件路径传入阿里云 CLI
+ALIYUN_OPTIONS="$ALIYUN_OPTIONS"" --config-path ""$ALIYUN_CONFIG_FILE"
 # 从阿里云获取域名解析记录
 RECORD="$($ALIYUN_BIN alidns $ALIYUN_OPTIONS DescribeSubDomainRecords --SubDomain $RECORD_RR.$RECORD_DOMAIN | jq -r '.DomainRecords.Record[0]' 2>/dev/null)"
 # 从域名信息中提取 RecordId
