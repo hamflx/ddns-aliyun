@@ -46,7 +46,7 @@ fi
 
 while true; do
     # 从公共平台查询公网 IP 地址作为拨号连接获得的 IP 地址
-    PUBLIC_IP="$(curl https://ip.cn 2>/dev/null | jq -r .ip 2>/dev/null | grep -P '^\d+\.\d+\.\d+\.\d+$')"
+    PUBLIC_IP="$(curl -s cip.cc | sed 's/\s\+//g' | grep -oP 'IP:\d+\.\d+\.\d+\.\d+' | cut -d ':' -f 2)"
 
     # 检查获取到的地址是否有效
     if [[ "$PUBLIC_IP" == "" ]]; then
