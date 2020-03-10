@@ -52,6 +52,8 @@ while true; do
     if [[ "$PUBLIC_IP" == "" ]]; then
         log ERROR "Invalid PUBLIC_IP: $PUBLIC_IP"
         exit 1
+    else
+        log INFO "Queried public ip address: ${PUBLIC_IP}"
     fi
 
     # 若查询到的 IP 地址与记录比匹配则更新
